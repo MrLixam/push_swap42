@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:11:08 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/09 18:50:06 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:15:15 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_sx(t_list **stack)
 {
-	t_list	*first;
-	t_list	*i;
-	int		tmp;
+	t_list		*first;
+	t_list		*i;
+	t_content	*tmp;
 
 	first = *stack;
 	i = first->next;
@@ -33,7 +33,7 @@ void	ft_ss(t_list **stack_a, t_list **stack_b)
 
 static void	del(void *to_del)
 {
-	to_del = NULL;
+	free(to_del);
 }
 
 void	ft_px(t_list **stack_to, t_list **stack_from)
@@ -46,4 +46,21 @@ void	ft_px(t_list **stack_to, t_list **stack_from)
 	ft_lstadd_front(stack_to, new);
 	*stack_from = tmp->next;
 	ft_lstdelone(tmp, &del);
+}
+
+void	ft_rx(t_list **stack)
+{
+	t_list *tmp;
+
+	tmp = ft_lstlast(*stack);
+	tmp->next = *stack;
+	tmp = tmp->next;
+	*stack = tmp->next;
+	tmp->next = NULL;
+}
+
+void	ft_rr(t_list **stack_a, t_list **stack_b)
+{
+	ft_rx(stack_a);
+	ft_rx(stack_b);
 }

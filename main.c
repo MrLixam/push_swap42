@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 17:30:20 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/22 15:23:58 by lvincent         ###   ########.fr       */
+/*   Created: 2023/05/09 17:50:48 by lvincent          #+#    #+#             */
+/*   Updated: 2023/05/22 17:24:08 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rrx(t_list **stack)
-{
-	t_list	*tmp;
-	t_list	*tmp2;
 
-	tmp = ft_lstlast(*stack);
-	tmp2 = *stack;
-	while (tmp2->next != tmp)
-		tmp2 = tmp2->next;
-	ft_lstadd_front(stack, tmp);
-	tmp2->next = NULL;
-}
-
-void	ft_rrr(t_list **stack_a, t_list **stack_b)
+int main(int argc, char **argv)
 {
-	ft_rrx(stack_a);
-	ft_rrx(stack_b);
+	t_list **stack;
+	t_list **stack2;
+	t_list *tmp;
+	t_content	*temp;
+
+	stack = malloc(sizeof(t_list **));
+	stack2 = malloc(sizeof(t_list **));
+	init_stack(stack, stack2, argv, argc);
+	tmp = *stack;
+	while (tmp != NULL)
+	{
+		temp = tmp->content;
+		ft_printf("%d", temp->value);
+		tmp = tmp->next;
+	}
 }
