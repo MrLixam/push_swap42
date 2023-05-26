@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 20:27:44 by lvincent          #+#    #+#             */
-/*   Updated: 2023/03/21 16:32:46 by lvincent         ###   ########.fr       */
+/*   Updated: 2022/11/14 00:28:16 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	if (!str)
-		return (0);
 	while (str[i] != '\0')
 		i++;
 	return (i);
