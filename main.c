@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:50:48 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/22 17:24:08 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/26 13:26:20 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int main(int argc, char **argv)
 	while (tmp != NULL)
 	{
 		temp = tmp->content;
-		ft_printf("%d", temp->value);
+		ft_printf("%d ", temp->v_index);
 		tmp = tmp->next;
 	}
+	delete_stacks(stack, stack2);
 }

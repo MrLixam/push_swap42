@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:11:08 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/22 17:15:15 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:57:44 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_ss(t_list **stack_a, t_list **stack_b)
 	ft_sx(stack_b);
 }
 
-static void	del(void *to_del)
+void	del(void *to_del)
 {
 	free(to_del);
 }

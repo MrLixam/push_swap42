@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 17:36:34 by lvincent          #+#    #+#              #
-#    Updated: 2023/05/22 18:07:24 by lvincent         ###   ########.fr        #
+#    Updated: 2023/05/26 12:49:48 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,16 @@ CC = clang
 
 LIBFT = ./libft/libft.a
 
+CFLAGS = -Werror -Wall -Wextra -g
+
 all : libft $(NAME)
 
 .c.o :
 	@echo "Compiling $<"
-	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME) : $(OBJ)
-	@$(CC) $(OBJ) $(LIBFT) -o $(NAME)
+	@$(CC) $(OBJ) $(LIBFT) $(CFLAGS) -o $(NAME)
 	@echo "Compiled $(NAME)"
 
 libft :
