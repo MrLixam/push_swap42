@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 19:01:51 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/26 12:59:54 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/27 17:05:12 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	init_stack(t_list **stack_a, t_list **stack_b, char **argv, int argc)
 	if (!tmp)
 		return ;
 	*stack_b = tmp;
-	i = 1;
+	i = 0;
 	tmp = ft_lstnew(init_struct(ft_atoi(argv[i])));
 	if (!tmp)
 		return ;

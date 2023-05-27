@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:01:06 by lvincent          #+#    #+#             */
-/*   Updated: 2022/11/14 00:39:14 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/27 17:22:07 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*ft_get_str(char const *s, char c)
 	return (tmp);
 }
 
-static void	ft_free_arr(char **arr)
+void	ft_free_arr(char **arr)
 {
 	unsigned int	i;
 

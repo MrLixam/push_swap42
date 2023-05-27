@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 15:46:24 by lvincent          #+#    #+#              #
-#    Updated: 2023/05/26 19:13:49 by lvincent         ###   ########.fr        #
+#    Updated: 2023/05/27 17:32:37 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC =		get_next_line.c \
 		ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strlcat.c ft_strlcpy.c \
 		ft_strlen.c ft_strncmp.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_memchr.c \
 		ft_lstadd_front.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_len_arr.c
 
 OBJ = $(SRC:.c=.o)
 

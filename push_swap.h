@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:25:36 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/26 13:00:11 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/27 17:22:44 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_content
 	int	v_index;
 }		t_content;
 
+void		ft_error(void);
 void		ft_sx(t_list **stack);
 void		ft_ss(t_list **stack_a, t_list **stack_b);
 void		ft_px(t_list **stack_to, t_list **stack_from);
@@ -30,3 +31,4 @@ void		init_stack(t_list **stack_a, t_list **stack_b, char **argv, int argc);
 t_content	*init_struct(int value);
 void		del(void *to_del);
 void		delete_stacks(t_list **stack_a, t_list **stack_b);
+char		**parsing(char **argv, int argc);

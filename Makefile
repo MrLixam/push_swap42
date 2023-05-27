@@ -6,13 +6,13 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 17:36:34 by lvincent          #+#    #+#              #
-#    Updated: 2023/05/26 12:49:48 by lvincent         ###   ########.fr        #
+#    Updated: 2023/05/27 14:08:00 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = utils1.c utils2.c init_stack.c main.c
+SRC = utils1.c utils2.c init_stack.c main.c parsing.c
 
 OBJ = $(SRC:.c=.o)
 
