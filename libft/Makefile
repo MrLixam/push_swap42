@@ -6,9 +6,22 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 15:46:24 by lvincent          #+#    #+#              #
-#    Updated: 2023/05/27 17:32:37 by lvincent         ###   ########.fr        #
+#    Updated: 2023/05/27 19:55:09 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+GREEN = \033[0;32m
+
+RED = \033[0;31m
+
+RED_B = \033[1;31m
+
+YELLOW = \033[1;33m
+
+BLUE = \033[0;34m
+
+RESET = \033[0m
+
 
 SRC =		get_next_line.c \
 		ft_printf.c ft_printf_utils1.c \
@@ -39,20 +52,21 @@ all : $(NAME)
 
 .c.o:
 
-	@echo -n "\rCompiling $<\033[0K"
+	@echo -ne "\\r\033[2K$(GREEN)Compiling $<"
 	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME) : $(OBJ)
+	@echo -e "\n$(BLUE)Compiled object files for libft"
 	@$(AR) $(AR_FLAGS) $(NAME) $(OBJ)
-	@echo "\nCompiled libft!"
+	@echo -e "$(YELLOW)Compiled libft!$(RESET)"
 	
 clean:
 	@$(RM) $(OBJ)
-	@echo "removed object files from libft"
+	@echo -e "$(RED)removed object files from libft$(RESET)"
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "Removed $(NAME)"
+	@echo -e "$(RED_B)Removed $(NAME) $(RESET)"
 
 re: clean all
 
