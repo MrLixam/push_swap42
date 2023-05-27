@@ -6,13 +6,13 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:11:08 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/26 12:57:44 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/27 21:04:25 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sx(t_list **stack)
+void	ft_sx(t_list **stack, int x)
 {
 	t_list		*first;
 	t_list		*i;
@@ -23,12 +23,17 @@ void	ft_sx(t_list **stack)
 	tmp = first->content;
 	first->content = i->content;
 	i->content = tmp;
+	if (x == 1)
+		ft_printf("sa");
+	if (x == 2)
+		ft_printf("sb");
 }
 
 void	ft_ss(t_list **stack_a, t_list **stack_b)
 {
-	ft_sx(stack_a);
-	ft_sx(stack_b);
+	ft_sx(stack_a, 0);
+	ft_sx(stack_b, 0);
+	ft_printf("ss\n");
 }
 
 void	del(void *to_del)
@@ -36,7 +41,7 @@ void	del(void *to_del)
 	free(to_del);
 }
 
-void	ft_px(t_list **stack_to, t_list **stack_from)
+void	ft_px(t_list **stack_to, t_list **stack_from, int x)
 {
 	t_list	*new;
 	t_list	*tmp;
@@ -46,9 +51,13 @@ void	ft_px(t_list **stack_to, t_list **stack_from)
 	ft_lstadd_front(stack_to, new);
 	*stack_from = tmp->next;
 	ft_lstdelone(tmp, &del);
+	if (x == 1)
+		ft_printf("pa");
+	if (x == 2)
+		ft_printf("pb");
 }
 
-void	ft_rx(t_list **stack)
+void	ft_rx(t_list **stack, int x)
 {
 	t_list *tmp;
 
@@ -57,10 +66,15 @@ void	ft_rx(t_list **stack)
 	tmp = tmp->next;
 	*stack = tmp->next;
 	tmp->next = NULL;
+	if (x == 1)
+		ft_printf("ra");
+	if (x == 2)
+		ft_printf("rb");
 }
 
 void	ft_rr(t_list **stack_a, t_list **stack_b)
 {
-	ft_rx(stack_a);
-	ft_rx(stack_b);
+	ft_rx(stack_a, 0);
+	ft_rx(stack_b, 0);
+	ft_printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 13:15:15 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/27 18:26:51 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/27 22:06:16 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_error(void)
 	exit(EXIT_FAILURE);
 }
 
-static char *add_arg(char *s1, char *s2)
+static char	*add_arg(char *s1, char *s2)
 {
 	char	*tmp;
 	char	*tmp2;
@@ -34,35 +34,6 @@ static char *add_arg(char *s1, char *s2)
 	return (tmp);
 }
 
-void	check_arr(char **arr)
-{
-	int	i;
-	int	j;
-	int	click;
-
-	i = -1;
-	while (arr[++i])
-	{
-		j = -1;
-		click = 0;
-		while (arr[i][++j])
-		{
-			if (ft_isdigit(arr[i][j]))
-				click = 1;
-			else if (click && !ft_isdigit(arr[i][j]))
-			{
-				ft_free_arr(arr);
-				ft_error();
-			}
-			else if (arr[i][j] != '+' && arr[i][j] != '-')
-			{
-				ft_free_arr(arr);
-				ft_error();
-			}
-		}
-	}
-}
-
 static void	check_err(char **arr)
 {
 	if (!arr)
@@ -74,12 +45,41 @@ static void	check_err(char **arr)
 	}
 }
 
-char **parsing(char **argv, int argc)
+static void	check_arr(char **arr)
 {
-	char **ret;
-	char *tmp;
-	char *str;
-	int i;
+	int	i[2];
+	int	click;
+
+	i[0] = -1;
+	check_err(arr);
+	while (arr[++i[0]])
+	{
+		i[1] = -1;
+		click = 0;
+		while (arr[i[0]][++i[1]])
+		{
+			if (ft_isdigit(arr[i[0]][i[1]]))
+				click = 1;
+			else if (click && !ft_isdigit(arr[i[0]][i[1]]))
+			{
+				ft_free_arr(arr);
+				ft_error();
+			}
+			else if (arr[i[0]][i[1]] != '+' && arr[i[0]][i[1]] != '-')
+			{
+				ft_free_arr(arr);
+				ft_error();
+			}
+		}
+	}
+}
+
+char	**parsing(char **argv, int argc)
+{
+	char	**ret;
+	char	*tmp;
+	char	*str;
+	int		i;
 
 	if (argc == 1)
 		exit(EXIT_FAILURE);
@@ -98,7 +98,7 @@ char **parsing(char **argv, int argc)
 	}
 	ret = ft_split(str, ' ');
 	free(str);
-	check_err(ret);
 	check_arr(ret);
+	parsing2(ret);
 	return (ret);
 }

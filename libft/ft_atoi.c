@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:43:58 by lvincent          #+#    #+#             */
-/*   Updated: 2022/11/14 00:37:10 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/27 22:26:49 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_atoi(const char *nptr)
 	ints[1] = 1;
 	while ((nptr[ints[0]] >= 9 && nptr[ints[0]] <= 13) || nptr[ints[0]] == ' ')
 		ints[0]++;
-	if (nptr[ints[0]] == '-' || nptr[ints[0]] == '+')
+	while (nptr[ints[0]] == '-' || nptr[ints[0]] == '+')
 		if (nptr[ints[0]++] == '-')
 			ints[1] = -1;
 	while (nptr[ints[0]] && ft_isdigit(nptr[ints[0]]))

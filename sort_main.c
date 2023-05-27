@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 17:50:48 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/27 23:16:10 by lvincent         ###   ########.fr       */
+/*   Created: 2023/05/27 20:37:08 by lvincent          #+#    #+#             */
+/*   Updated: 2023/05/27 23:23:29 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int main(int argc, char **argv)
+void sort_3(t_list **stack)
 {
-	char		**foo;
-	t_list		**stack_a;
-	t_list		**stack_b;
 
-	foo = parsing(argv, argc);
-	stack_a = malloc(sizeof(t_list **));
-	stack_b = malloc(sizeof(t_list **));
-	init_stack(stack_a, stack_b, foo, ft_len_arr(foo));
-	sort_main(stack_a, stack_b);
-	ft_free_arr(foo);
-	delete_stacks(stack_b, stack_b);
-	return (0);
+}
+
+void sort_main(t_list **stack_a, t_list **stack_b)
+{
+	int	i;
+
+	if (!check_sort(stack_a, ft_lstsize(*stack_a)))
+		return ;
+	i = ft_lstsize(*stack_a);
+	if (i == 2)
+		ft_rx(stack_a, 1);
+	if (i == 3)
+		sort_3(stack_a);
+	return ;
 }
