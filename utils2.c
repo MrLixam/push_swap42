@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:30:20 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/27 23:27:12 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/28 08:01:00 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b)
 {
 	ft_rrx(stack_a, 0);
 	ft_rrx(stack_b, 0);
+	ft_printf("rrr");
 }
 
 int	check_sort(t_list **stack, int max)
@@ -55,11 +56,14 @@ int	check_sort(t_list **stack, int max)
 	return (0);
 }
 
-int read_value(t_list **stack, int	index)
+int	read_value(t_list **stack, int index)
 {
 	t_list *tmp;
 	t_content *content;
 
 	tmp = *stack;
-	while (index)
+	while (index--)
+		tmp = tmp->next;
+	content = tmp->content;
+	return (content->v_index);
 }
