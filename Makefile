@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 17:36:34 by lvincent          #+#    #+#              #
-#    Updated: 2023/05/27 23:16:46 by lvincent         ###   ########.fr        #
+#    Updated: 2023/05/30 17:25:36 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ RESET = \033[0m
 
 NAME = push_swap
 
-SRC = utils1.c utils2.c init_stack.c main.c parsing.c parsing2.c sort_main.c
+SRC = utils1.c utils2.c utils3.c init_stack.c main.c parsing.c parsing2.c sort_main.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -37,13 +37,13 @@ CFLAGS = -Werror -Wall -Wextra -g
 all : libft $(NAME)
 
 .c.o :
-	@echo -e "$(GREEN)Compiling $<"
+	@echo "$(GREEN)Compiling $<"
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME) : $(OBJ)
-	@echo -e "$(BLUE)Compiled object files for $(NAME)$(RESET)"
+	@echo "$(BLUE)Compiled object files for $(NAME)$(RESET)"
 	@$(CC) $(OBJ) $(LIBFT) $(CFLAGS) -o $(NAME)
-	@echo -e "$(YELLOW)Compiled $(NAME)$(RESET)"
+	@echo "$(YELLOW)Compiled $(NAME)$(RESET)"
 
 libft :
 	@make -C ./libft --no-print-directory
@@ -51,13 +51,13 @@ libft :
 clean :
 	@rm -f $(OBJ)
 	@make clean -C ./libft -s
-	@echo -e "$(RED)Removed object files from project and dependencies$(RESET)"
+	@echo "$(RED)Removed object files from project and dependencies$(RESET)"
 
 fclean :
 	@rm -f $(OBJ)
-	@echo -e "$(RED)Removed object files from project and dependencies$(RESET)"
+	@echo "$(RED)Removed object files from project and dependencies$(RESET)"
 	@rm -f $(NAME)
-	@echo -e "$(RED_B)Removed $(NAME)$(RESET)"
+	@echo "$(RED_B)Removed $(NAME)$(RESET)"
 	@make fclean -C ./libft -s
 
 re : fclean all

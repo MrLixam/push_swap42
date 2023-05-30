@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 19:01:51 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/27 17:05:12 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:43:22 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ void	init_stack(t_list **stack_a, t_list **stack_b, char **argv, int argc)
 	t_list		*tmp;
 	int			i;
 
-	tmp = ft_lstnew(NULL);
-	if (!tmp)
-		return ;
-	*stack_b = tmp;
+	*stack_b = NULL;
 	i = 0;
 	tmp = ft_lstnew(init_struct(ft_atoi(argv[i])));
 	if (!tmp)
@@ -72,8 +69,14 @@ void	init_stack(t_list **stack_a, t_list **stack_b, char **argv, int argc)
 
 void	delete_stacks(t_list **stack_a, t_list **stack_b)
 {
-	ft_lstclear(stack_a, &del);
-	ft_lstclear(stack_b, &del);
-	free(stack_a);
-	free(stack_b);
+	if (*stack_a)
+	{
+		ft_lstclear(stack_a, &del);
+		free(stack_a);
+	}
+	if (*stack_b)
+	{
+		ft_lstclear(stack_b, &del);
+		free(stack_b);
+	}
 }

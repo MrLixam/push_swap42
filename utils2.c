@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:30:20 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/28 08:01:00 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:57:47 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,25 @@
 
 void	ft_rrx(t_list **stack, int x)
 {
-	t_list	*tmp;
-	t_list	*tmp2;
+	t_list *tmp;
 
 	tmp = ft_lstlast(*stack);
-	tmp2 = *stack;
-	while (tmp2->next != tmp)
-		tmp2 = tmp2->next;
-	ft_lstadd_front(stack, tmp);
-	tmp2->next = NULL;
+	tmp->next = *stack;
+	tmp = tmp->next;
+	*stack = tmp->next;
+	tmp->next = NULL;
 	if (x == 1)
-		ft_printf("rra");
+		ft_printf("rra\n");
 	if (x == 2)
-		ft_printf("rrb");
+		ft_printf("rrb\n");
 }
+
 
 void	ft_rrr(t_list **stack_a, t_list **stack_b)
 {
 	ft_rrx(stack_a, 0);
 	ft_rrx(stack_b, 0);
-	ft_printf("rrr");
+	ft_printf("rrr\n");
 }
 
 int	check_sort(t_list **stack, int max)
@@ -45,7 +44,7 @@ int	check_sort(t_list **stack, int max)
 	head = *stack;
 	current = head->content;
 	last = current->value;
-	while (head != NULL || max-- != 0)
+	while (head != NULL && max-- != 0)
 	{
 		current = head->content;
 		if (last > current->value)
@@ -56,7 +55,7 @@ int	check_sort(t_list **stack, int max)
 	return (0);
 }
 
-int	read_value(t_list **stack, int index)
+size_t	read_value(t_list **stack, int index)
 {
 	t_list *tmp;
 	t_content *content;
@@ -66,4 +65,23 @@ int	read_value(t_list **stack, int index)
 		tmp = tmp->next;
 	content = tmp->content;
 	return (content->v_index);
+}
+
+size_t	find_min(t_list **stack)
+{
+	size_t	min;
+	t_list	*head;
+	size_t	i;
+
+	head = *stack;
+	min = 0;
+	i = 0;
+	while (head != NULL)
+	{
+		if (read_value(stack, min) > read_value(stack, i))
+			min = i;
+		i++;
+		head = head->next;
+	}
+	return (min);
 }

@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:25:36 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/28 08:00:17 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:25:49 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,6 @@ void		parsing2(char **arr);
 
 int			check_sort(t_list **stack, int max);
 void		sort_main(t_list **stack_a, t_list **stack_b);
-int			read_value(t_list **stack, int index);
+size_t		read_value(t_list **stack, int index);
+size_t		find_min(t_list **stack);
+void		print_lst(t_list **stack);

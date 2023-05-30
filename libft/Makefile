@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 15:46:24 by lvincent          #+#    #+#              #
-#    Updated: 2023/05/27 19:55:09 by lvincent         ###   ########.fr        #
+#    Updated: 2023/05/30 15:48:27 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,21 +52,21 @@ all : $(NAME)
 
 .c.o:
 
-	@echo -ne "\\r\033[2K$(GREEN)Compiling $<"
+	@echo -n "\\r\033[2K$(GREEN)Compiling $<"
 	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME) : $(OBJ)
-	@echo -e "\n$(BLUE)Compiled object files for libft"
+	@echo "\n$(BLUE)Compiled object files for libft"
 	@$(AR) $(AR_FLAGS) $(NAME) $(OBJ)
-	@echo -e "$(YELLOW)Compiled libft!$(RESET)"
+	@echo "$(YELLOW)Compiled libft!$(RESET)"
 	
 clean:
 	@$(RM) $(OBJ)
-	@echo -e "$(RED)removed object files from libft$(RESET)"
+	@echo "$(RED)removed object files from libft$(RESET)"
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo -e "$(RED_B)Removed $(NAME) $(RESET)"
+	@echo "$(RED_B)Removed $(NAME) $(RESET)"
 
 re: clean all
 

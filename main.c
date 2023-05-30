@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:50:48 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/30 06:34:11 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:40:51 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,14 @@ int main(int argc, char **argv)
 	foo = parsing(argv, argc);
 	stack_a = malloc(sizeof(t_list **));
 	stack_b = malloc(sizeof(t_list **));
+	if (!stack_a || !stack_b)
+	{
+		ft_error();
+		delete_stacks(stack_a, stack_b);
+	}
 	init_stack(stack_a, stack_b, foo, ft_len_arr(foo));
 	sort_main(stack_a, stack_b);
+	print_lst(stack_a);
 	ft_free_arr(foo);
 	delete_stacks(stack_a, stack_b);
 	return (0);
