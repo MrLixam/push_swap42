@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:47:11 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 18:05:14 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:40:05 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,30 @@
 
 static void	send_back(t_list **sa, t_list **sb)
 {
-	size_t	index;
-	size_t	tmp;
-	size_t	med;
+	size_t	nb[3];
 
 	while (*sb != NULL)
 	{
-		med = ft_lstsize(*sb) / 2;
-		index = find_max(sb);
-		tmp = read_value(sb, (int)index);
-		while (read_value(sb, 0) != tmp)
+		nb[2] = 0;
+		nb[0] = find_max(sb);
+		nb[1] = read_value(sb, (int)nb[0]);
+		while (read_value(sb, 0) != nb[1])
 		{
-			if (index > med)
+			if (read_value(sb, 0) == nb[1] - 1)
+			{
+				ft_px(sa, sb, 1);
+				nb[0] = find_max(sb);
+				nb[2]++;
+				continue ;
+			}
+			if (nb[0] >= ft_lstsize(*sb) / 2)
 				ft_rrx(sb, 2);
-			else
+			else if (nb[0] < ft_lstsize(*sb) / 2)
 				ft_rx(sb, 2);
 		}
 		ft_px(sa, sb, 1);
+		if (nb[2])
+			ft_sx(sa, 1);
 	}
 }
 
