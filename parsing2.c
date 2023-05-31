@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 21:18:50 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 10:06:44 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:30:59 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static int	check_int(char *to_check)
 	int		i;
 
 	s1 = ft_strtrim(to_check, "+-");
+	if (!ft_strncmp(s1, "0", 1))
+		return (0);
 	s2 = ft_strjoin("-", s1);
 	free(s1);
 	s1 = s2;
