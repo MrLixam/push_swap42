@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:11:08 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/30 18:28:28 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 04:34:20 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	ft_px(t_list **stack_to, t_list **stack_from, int x)
 {
 	t_list		*new;
 	t_list		*tmp;
-	size_t		size;
 	t_content	*temp;
 	t_content	*new_cnt;
 	
@@ -58,11 +57,7 @@ void	ft_px(t_list **stack_to, t_list **stack_from, int x)
 	new = ft_lstnew(new_cnt);
 	ft_lstadd_front(stack_to, new);
 	*stack_from = tmp->next;
-	size = ft_lstsize(*stack_from);
 	ft_lstdelone(tmp, &del);
-	tmp->content = NULL;
-	if (!(size - 1))
-		*stack_from = NULL;
 	if (x == 1)
 		ft_printf("pa\n");
 	if (x == 2)
@@ -71,16 +66,13 @@ void	ft_px(t_list **stack_to, t_list **stack_from, int x)
 
 void	ft_rx(t_list **stack, int x)
 {
-	t_list	*tmp;
-	t_list	*tmp2;
+	t_list *tmp;
 
 	tmp = ft_lstlast(*stack);
-	tmp2 = *stack;
-	while (tmp2->next != tmp)
-		tmp2 = tmp2->next;
 	tmp->next = *stack;
-	tmp2->next = NULL;
-	*stack = tmp;
+	tmp = tmp->next;
+	*stack = tmp->next;
+	tmp->next = NULL;
 	if (x == 1)
 		ft_printf("ra\n");
 	if (x == 2)

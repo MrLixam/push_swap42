@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:25:36 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/30 17:25:49 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 05:56:40 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ void		delete_stacks(t_list **stack_a, t_list **stack_b);
 char		**parsing(char **argv, int argc);
 void		parsing2(char **arr);
 
-int			check_sort(t_list **stack, int max);
+int			check_sort(t_list **stack, int max); //checks if the list is sorted up to index max ->return -1 if not sorted
 void		sort_main(t_list **stack_a, t_list **stack_b);
-size_t		read_value(t_list **stack, int index);
-size_t		find_min(t_list **stack);
+
+size_t		read_value(t_list **stack, int index);	//returns v_index value at stack[index]
+size_t		find_min(t_list **stack);	//return the index of the minimal value in stack
+size_t		find_max(t_list **stack);	//returns the index of the maximal value in stack
+
 void		print_lst(t_list **stack);

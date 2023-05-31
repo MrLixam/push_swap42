@@ -6,27 +6,30 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:30:20 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/30 16:57:47 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 04:34:08 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
 void	ft_rrx(t_list **stack, int x)
 {
-	t_list *tmp;
+	t_list	*tmp;
+	t_list	*tmp2;
 
 	tmp = ft_lstlast(*stack);
+	tmp2 = *stack;
+	while (tmp2->next != tmp)
+		tmp2 = tmp2->next;
 	tmp->next = *stack;
-	tmp = tmp->next;
-	*stack = tmp->next;
-	tmp->next = NULL;
+	tmp2->next = NULL;
+	*stack = tmp;
 	if (x == 1)
 		ft_printf("rra\n");
 	if (x == 2)
 		ft_printf("rrb\n");
 }
-
 
 void	ft_rrr(t_list **stack_a, t_list **stack_b)
 {
