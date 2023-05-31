@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 20:37:08 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 05:35:41 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 10:03:06 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	sort_3(t_list **stack, int s)
 {
-	while(check_sort(stack, 3) == -1)
+	while (check_sort(stack, 3) == -1)
 	{	
 		if (read_value(stack, 0) > read_value(stack, 1))
 		{
@@ -40,7 +40,7 @@ static void	sort_5(t_list **stack_a, t_list **stack_b)
 	while (ft_lstsize(*stack_a) != 3)
 	{
 		min = find_min(stack_a);
-		if(min > ft_lstsize(*stack_a) / 2)
+		if (min > ft_lstsize(*stack_a) / 2)
 			while (min++ < ft_lstsize(*stack_a))
 				ft_rrx(stack_a, 1);
 		else
@@ -51,7 +51,7 @@ static void	sort_5(t_list **stack_a, t_list **stack_b)
 	sort_3(stack_a, 1);
 	ft_px(stack_a, stack_b, 1);
 	if (size == 5)
-		ft_px(stack_a, stack_b, 1);	
+		ft_px(stack_a, stack_b, 1);
 }
 
 void	sort_main(t_list **stack_a, t_list **stack_b)
@@ -67,5 +67,7 @@ void	sort_main(t_list **stack_a, t_list **stack_b)
 		sort_3(stack_a, 1);
 	if (i == 4 || i == 5)
 		sort_5(stack_a, stack_b);
+	else
+		complex_sort(stack_a, stack_b);
 	return ;
 }

@@ -6,12 +6,14 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:25:36 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 05:56:40 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 10:57:05 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft/libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include <stdlib.h>
+# include "libft/libft.h"
 
 typedef struct s_content
 {
@@ -26,10 +28,10 @@ void		ft_ss(t_list **stack_a, t_list **stack_b);
 void		ft_px(t_list **stack_to, t_list **stack_from, int x);
 void		ft_rx(t_list **stack, int x);
 void		ft_rr(t_list **stack_a, t_list **stack_b);
-void 		ft_rrx(t_list **stack, int x);
+void		ft_rrx(t_list **stack, int x);
 void		ft_rrr(t_list **stack_a, t_list **stack_b);
 
-void		init_stack(t_list **stack_a, t_list **stack_b, char **argv, int argc);
+void		init_stack(t_list **stk_a, t_list **stk_b, char **foo, int nb);
 t_content	*init_struct(int value);
 
 void		del(void *to_del);
@@ -38,11 +40,13 @@ void		delete_stacks(t_list **stack_a, t_list **stack_b);
 char		**parsing(char **argv, int argc);
 void		parsing2(char **arr);
 
-int			check_sort(t_list **stack, int max); //checks if the list is sorted up to index max ->return -1 if not sorted
+int			check_sort(t_list **stack, int max);
 void		sort_main(t_list **stack_a, t_list **stack_b);
+void		complex_sort(t_list **stack_a, t_list **stack_b);
 
-size_t		read_value(t_list **stack, int index);	//returns v_index value at stack[index]
-size_t		find_min(t_list **stack);	//return the index of the minimal value in stack
-size_t		find_max(t_list **stack);	//returns the index of the maximal value in stack
+size_t		read_value(t_list **stack, int index);
+size_t		find_min(t_list **stack);
+size_t		find_max(t_list **stack);
 
 void		print_lst(t_list **stack);
+#endif

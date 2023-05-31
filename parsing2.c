@@ -6,17 +6,16 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 21:18:50 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/27 22:29:12 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 10:06:44 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void check_dupe(char **arr)
+void	check_dupe(char **arr)
 {
-	int i;
-	int j;
-
+	int	i;
+	int	j;
 
 	i = -1;
 	while (arr[++i])
@@ -57,8 +56,7 @@ static int	check_int(char *to_check)
 
 void	parsing2(char **arr)
 {
-	int i;
-	//int j;
+	int	i;
 
 	i = -1;
 	while (arr[++i])

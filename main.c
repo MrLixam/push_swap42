@@ -6,14 +6,13 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:50:48 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 04:32:17 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 10:06:03 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char		**foo;
 	t_list		**stack_a;

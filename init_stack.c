@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 19:01:51 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 04:05:37 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 10:55:45 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_content	*init_struct(int value)
 {
-	t_content *cnt;
+	t_content	*cnt;
 
 	cnt = malloc(sizeof(t_content *));
 	cnt->v_index = -1;
@@ -46,25 +46,25 @@ static void	init_v_index(t_list **stack_a)
 	}
 }
 
-void	init_stack(t_list **stack_a, t_list **stack_b, char **argv, int argc)
+void	init_stack(t_list **stk_a, t_list **stk_b, char **foo, int nb)
 {
 	t_list		*tmp;
 	int			i;
 
-	*stack_b = NULL;
+	*stk_b = NULL;
 	i = 0;
-	tmp = ft_lstnew(init_struct(ft_atoi(argv[i])));
+	tmp = ft_lstnew(init_struct(ft_atoi(foo[i])));
 	if (!tmp)
 		return ;
-	*stack_a = tmp;
-	while (++i < argc)
+	*stk_a = tmp;
+	while (++i < nb)
 	{
-		tmp = ft_lstnew(init_struct(ft_atoi(argv[i])));
+		tmp = ft_lstnew(init_struct(ft_atoi(foo[i])));
 		if (!tmp)
 			return ;
-		ft_lstadd_back(stack_a, tmp);
+		ft_lstadd_back(stk_a, tmp);
 	}
-	init_v_index(stack_a);
+	init_v_index(stk_a);
 }
 
 void	delete_stacks(t_list **stack_a, t_list **stack_b)

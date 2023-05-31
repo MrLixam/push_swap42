@@ -6,12 +6,11 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:30:20 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 04:34:08 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:27:37 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	ft_rrx(t_list **stack, int x)
 {
@@ -40,9 +39,9 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b)
 
 int	check_sort(t_list **stack, int max)
 {
-	t_list *head;
-	t_content *current;	
-	int	last;
+	t_list		*head;
+	t_content	*current;	
+	int			last;
 
 	head = *stack;
 	current = head->content;
@@ -60,8 +59,8 @@ int	check_sort(t_list **stack, int max)
 
 size_t	read_value(t_list **stack, int index)
 {
-	t_list *tmp;
-	t_content *content;
+	t_list		*tmp;
+	t_content	*content;
 
 	tmp = *stack;
 	while (index--)

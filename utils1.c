@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:11:08 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 04:34:20 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:27:28 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,32 +41,9 @@ void	del(void *to_del)
 	free(to_del);
 }
 
-void	ft_px(t_list **stack_to, t_list **stack_from, int x)
-{
-	t_list		*new;
-	t_list		*tmp;
-	t_content	*temp;
-	t_content	*new_cnt;
-	
-	if (!*stack_from)
-		return ;
-	tmp = *stack_from;
-	temp = tmp ->content;
-	new_cnt = init_struct(temp->value);
-	new_cnt->v_index = temp->v_index;
-	new = ft_lstnew(new_cnt);
-	ft_lstadd_front(stack_to, new);
-	*stack_from = tmp->next;
-	ft_lstdelone(tmp, &del);
-	if (x == 1)
-		ft_printf("pa\n");
-	if (x == 2)
-		ft_printf("pb\n");
-}
-
 void	ft_rx(t_list **stack, int x)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = ft_lstlast(*stack);
 	tmp->next = *stack;
