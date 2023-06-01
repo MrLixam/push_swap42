@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 19:01:51 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/01 09:18:11 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/01 11:23:42 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,14 @@ void	init_stack(t_list **stk_a, t_list **stk_b, char **foo, int nb)
 
 	*stk_b = NULL;
 	*stk_a = NULL;
-	i = 0;
+	i = -1;
 	while (++i < nb)
 	{
 		tmp = ft_lstnew(init_struct(ft_atoi(foo[i])));
-		if (!tmp || tmp->content == NULL)
+		if (!tmp || !tmp->content)
 		{
+			if (tmp)
+				ft_lstdelone(tmp, &del);
 			ft_free_arr(foo);
 			delete_stacks(stk_a, stk_b);
 			ft_error();
