@@ -6,17 +6,29 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 19:01:51 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 10:55:45 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:18:11 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	delete_stacks(t_list **stack_a, t_list **stack_b)
+{
+	if (*stack_a)
+		ft_lstclear(stack_a, &del);
+	if (*stack_b)
+		ft_lstclear(stack_b, &del);
+	free(stack_a);
+	free(stack_b);
+}
 
 t_content	*init_struct(int value)
 {
 	t_content	*cnt;
 
 	cnt = malloc(sizeof(t_content *));
+	if (!cnt)
+		return (NULL);
 	cnt->v_index = -1;
 	cnt->value = value;
 	return (cnt);
@@ -52,27 +64,18 @@ void	init_stack(t_list **stk_a, t_list **stk_b, char **foo, int nb)
 	int			i;
 
 	*stk_b = NULL;
+	*stk_a = NULL;
 	i = 0;
-	tmp = ft_lstnew(init_struct(ft_atoi(foo[i])));
-	if (!tmp)
-		return ;
-	*stk_a = tmp;
 	while (++i < nb)
 	{
 		tmp = ft_lstnew(init_struct(ft_atoi(foo[i])));
-		if (!tmp)
-			return ;
+		if (!tmp || tmp->content == NULL)
+		{
+			ft_free_arr(foo);
+			delete_stacks(stk_a, stk_b);
+			ft_error();
+		}
 		ft_lstadd_back(stk_a, tmp);
 	}
 	init_v_index(stk_a);
-}
-
-void	delete_stacks(t_list **stack_a, t_list **stack_b)
-{
-	if (*stack_a)
-		ft_lstclear(stack_a, &del);
-	if (*stack_b)
-		ft_lstclear(stack_b, &del);
-	free(stack_a);
-	free(stack_b);
 }
