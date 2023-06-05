@@ -6,11 +6,11 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 21:18:50 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 17:30:59 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/05 23:03:41 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	check_dupe(char **arr)
 {

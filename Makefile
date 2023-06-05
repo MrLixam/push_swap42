@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 17:36:34 by lvincent          #+#    #+#              #
-#    Updated: 2023/05/31 18:06:28 by lvincent         ###   ########.fr        #
+#    Updated: 2023/06/05 23:03:45 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ RESET = \033[0m
 
 NAME = push_swap
 
-SRC = utils1.c utils2.c utils3.c init_stack.c main.c parsing.c parsing2.c sort_main.c complex_sort.c
+SRC = src/utils1.c src/utils2.c src/utils3.c src/init_stack.c src/main.c src/parsing.c src/parsing2.c src/sort_main.c src/complex_sort.c
+
+SRC_B = 
 
 OBJ = $(SRC:.c=.o)
 

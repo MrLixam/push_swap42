@@ -6,11 +6,11 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:47:11 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/01 09:09:03 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/05 23:03:44 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	send_back(t_list **sa, t_list **sb)
 {

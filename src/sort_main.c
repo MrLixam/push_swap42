@@ -6,11 +6,11 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 20:37:08 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/31 10:03:06 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/05 23:03:40 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	sort_3(t_list **stack, int s)
 {
