@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 21:29:13 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/06 22:24:18 by lvincent         ###   ########.fr       */
+/*   Created: 2023/05/09 14:11:08 by lvincent          #+#    #+#             */
+/*   Updated: 2023/06/06 00:00:50 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap_bonus.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_sx(t_list **stack)
 {
-	if (!s)
-		return (NULL);
-	while (*s != '\0')
-	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (c == '\0')
-		return ((char *)s);
-	return (NULL);
+	t_list		*first;
+	t_list		*i;
+	t_content	*tmp;
+
+	first = *stack;
+	i = first->next;
+	tmp = first->content;
+	first->content = i->content;
+	i->content = tmp;
+}
+
+void	del(void *to_del)
+{
+	free(to_del);
+}
+
+void	ft_rx(t_list **stack)
+{
+	t_list	*tmp;
+
+	tmp = ft_lstlast(*stack);
+	tmp->next = *stack;
+	tmp = tmp->next;
+	*stack = tmp->next;
+	tmp->next = NULL;
 }

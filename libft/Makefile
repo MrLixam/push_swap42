@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 15:46:24 by lvincent          #+#    #+#              #
-#    Updated: 2023/05/30 15:48:27 by lvincent         ###   ########.fr        #
+#    Updated: 2023/06/06 22:13:14 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ = $(SRC:.c=.o)
 
 NAME = libft.a
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 
 RM = rm -f
 

@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:50:48 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/05 23:03:42 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/06 00:18:45 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(int argc, char **argv)
 	stack_b = malloc(sizeof(t_list **));
 	if (!stack_a || !stack_b)
 	{
-		ft_error();
 		delete_stacks(stack_a, stack_b);
+		ft_error();
 	}
 	init_stack(stack_a, stack_b, foo, ft_len_arr(foo));
 	sort_main(stack_a, stack_b);
