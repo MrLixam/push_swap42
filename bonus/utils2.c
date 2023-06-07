@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:30:20 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/06 00:01:18 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:09:51 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ void	ft_rrx(t_list **stack)
 	t_list	*tmp;
 	t_list	*tmp2;
 
-	tmp = ft_lstlast(*stack);
-	tmp2 = *stack;
-	while (tmp2->next != tmp)
-		tmp2 = tmp2->next;
-	tmp->next = *stack;
-	tmp2->next = NULL;
-	*stack = tmp;
+	if (ft_lstsize(*stack) > 1)
+	{
+		tmp = ft_lstlast(*stack);
+		tmp2 = *stack;
+		while (tmp2->next != tmp)
+			tmp2 = tmp2->next;
+		tmp->next = *stack;
+		tmp2->next = NULL;
+		*stack = tmp;
+	}
 }
 
 void	ft_px(t_list **stack_to, t_list **stack_from)
@@ -33,16 +36,17 @@ void	ft_px(t_list **stack_to, t_list **stack_from)
 	t_content	*temp;
 	t_content	*new_cnt;
 
-	if (!*stack_from)
-		return ;
-	tmp = *stack_from;
-	temp = tmp ->content;
-	new_cnt = init_struct(temp->value);
-	new_cnt->v_index = temp->v_index;
-	new = ft_lstnew(new_cnt);
-	ft_lstadd_front(stack_to, new);
-	*stack_from = tmp->next;
-	ft_lstdelone(tmp, &del);
+	if (*stack_from)
+	{
+		tmp = *stack_from;
+		temp = tmp ->content;
+		new_cnt = init_struct(temp->value);
+		new_cnt->v_index = temp->v_index;
+		new = ft_lstnew(new_cnt);
+		ft_lstadd_front(stack_to, new);
+		*stack_from = tmp->next;
+		ft_lstdelone(tmp, &del);
+	}
 }
 
 int	check_sort(t_list **stack, int max)

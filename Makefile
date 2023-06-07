@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 17:36:34 by lvincent          #+#    #+#              #
-#    Updated: 2023/06/06 23:21:51 by lvincent         ###   ########.fr        #
+#    Updated: 2023/06/07 15:55:13 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,4 +75,6 @@ fclean :
 
 re : fclean all
 
-.PHONY : all clean fclean re libft 
+re_b : fclean bonus
+
+.PHONY : all clean fclean re libft bonus

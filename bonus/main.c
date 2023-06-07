@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 23:23:31 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/06 23:20:06 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:54:24 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ static void	choose_arg(char *s, t_list **sa, t_list **sb)
 static int	instructions(t_list **sa, t_list **sb)
 {
 	char	*arg;
-	int		test;
 
 	arg = get_next_line(0);
 	while (arg)
@@ -81,7 +80,6 @@ int	main(int argc, char **argv)
 	char		**foo;
 	t_list		**stack_a;
 	t_list		**stack_b;
-	t_list		*tmp;
 	int			i;
 
 	i = -1;

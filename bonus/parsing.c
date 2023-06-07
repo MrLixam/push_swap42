@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 13:15:15 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/06 16:05:48 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:18:32 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	write(1, "Error!\n", 8);
+	write(1, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 

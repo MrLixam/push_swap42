@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:30:20 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/05 23:03:38 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:43:08 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ void	ft_rrx(t_list **stack, int x)
 	t_list	*tmp;
 	t_list	*tmp2;
 
-	tmp = ft_lstlast(*stack);
-	tmp2 = *stack;
-	while (tmp2->next != tmp)
-		tmp2 = tmp2->next;
-	tmp->next = *stack;
-	tmp2->next = NULL;
-	*stack = tmp;
+	if (ft_lstsize(*stack) > 1)
+	{
+		tmp = ft_lstlast(*stack);
+		tmp2 = *stack;
+		while (tmp2->next != tmp)
+			tmp2 = tmp2->next;
+		tmp->next = *stack;
+		tmp2->next = NULL;
+		*stack = tmp;
+	}
 	if (x == 1)
 		ft_printf("rra\n");
 	if (x == 2)
