@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 23:23:31 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/07 15:54:24 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/22 18:40:28 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@ static int	check_arg(char *arg)
 {
 	int	len;
 
+	if (ft_strlen(arg) < 3 || ft_strlen(arg) > 4)
+		return (0);
 	len = ft_strlen(arg);
-	if (!ft_strncmp(arg, "sa", len || !ft_strncmp(arg, "sb", len)))
+	if (!ft_strncmp(arg, "sa\n", len || !ft_strncmp(arg, "sb\n", len)))
 		return (1);
-	if (!ft_strncmp(arg, "pa", len || !ft_strncmp(arg, "pb", len)))
+	if (!ft_strncmp(arg, "pa\n", len || !ft_strncmp(arg, "pb\n", len)))
 		return (1);
-	if (!ft_strncmp(arg, "ra", len || !ft_strncmp(arg, "rb", len)))
+	if (!ft_strncmp(arg, "ran\n", len || !ft_strncmp(arg, "rb\n", len)))
 		return (1);
-	if (!ft_strncmp(arg, "rra", len || !ft_strncmp(arg, "rrb", len)))
+	if (!ft_strncmp(arg, "rra\n", len || !ft_strncmp(arg, "rrb\n", len)))
 		return (1);
-	if (!ft_strncmp(arg, "rr", len || !ft_strncmp(arg, "rrr", len)))
+	if (!ft_strncmp(arg, "rr\n", len || !ft_strncmp(arg, "rrr\n", len)))
 		return (1);
-	if (!ft_strncmp(arg, "ss", len))
+	if (!ft_strncmp(arg, "ss\n", len))
 		return (1);
 	else
 		return (0);
@@ -56,22 +58,27 @@ static void	choose_arg(char *s, t_list **sa, t_list **sb)
 static int	instructions(t_list **sa, t_list **sb)
 {
 	char	*arg;
+	char	**save;
 
-	arg = get_next_line(0);
+	save = ft_calloc(1024, sizeof(char *));
+	arg = get_next_line(0, &save);
 	while (arg)
 	{
 		if (check_arg(arg))
 		{
 			choose_arg(arg, sa, sb);
 			free(arg);
-			arg = get_next_line(0);
+			arg = get_next_line(0, &save);
 		}
 		else
 		{
+			write(2, "Error\n", 6);
+			ft_free_arr(save);
 			free(arg);
 			return (-1);
 		}
 	}
+	ft_free_arr(save);
 	return (0);
 }
 
@@ -95,7 +102,7 @@ int	main(int argc, char **argv)
 	i = instructions(stack_a, stack_b);
 	if (!check_sort(stack_a, ft_lstsize(*stack_a)) && !i)
 		ft_printf("OK\n");
-	else
+	else if (!i)
 		ft_printf("KO\n");
 	ft_free_arr(foo);
 	delete_stacks(stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 21:18:50 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/07 19:44:36 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:21:12 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,36 +37,16 @@ static void	check_dupe(char **arr)
 
 static int	check_int(char *to_check)
 {
-	char	*s1;
-	char	*s2;
-	int		i;
+	int	error;
 
-	s1 = ft_strtrim(to_check, "+");
-	if (!ft_strncmp(s1, "2147483648", 10))
-		i = 1;
-	else
-	{
-		free(s1);
-		s1 = ft_strtrim(to_check, "+-0");
-		if (!ft_atoi(s1))
-			i = 0;
-		else
-		{
-			s2 = ft_strjoin("-", s1);
-			s1 = ft_itoa(ft_atoi(s2));
-			i = ft_strncmp(s1, s2, ft_strlen(s2));
-			free(s2);
-		}
-	}
-	free(s1);
-	if (i)
-		return (1);
-	return (0);
+	error = 0;
+	ft_atoi_err(to_check, &error);
+	return (error);
 }
 
 static int	not_digit(char *to_check)
 {
-	char *s1;
+	char	*s1;
 
 	s1 = ft_strtrim(to_check, "+- ");
 	if (!ft_strlen(s1))

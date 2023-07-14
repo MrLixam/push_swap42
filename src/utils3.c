@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:22:04 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/07 18:43:57 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/07/14 19:04:12 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,31 @@ void	ft_px(t_list **stack_to, t_list **stack_from, int x)
 		ft_printf("pa\n");
 	if (x == 2)
 		ft_printf("pb\n");
+}
+
+int	ft_atoi_err(const char *str, int *error)
+{
+	int	nb;
+	int	sign;
+	int	temp;
+
+	nb = 0;
+	sign = 1;
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			sign = -1;
+	if (!ft_strncmp(str, "2147483648", ft_strlen(str)) && sign == -1)
+		return (-2147483648);
+	while (ft_isdigit(*str))
+	{
+		temp = nb;
+		nb = nb * 10 + (*str++ - '0');
+		if (nb / 10 != temp)
+			*error = 1;
+	}
+	if (*str)
+		*error = 1;
+	return (nb * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 23:04:42 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/06 22:57:10 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:21:30 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_content
 }		t_content;
 
 void		ft_error(void);
+int			ft_atoi_err(const char *str, int *error);
 
 void		ft_sx(t_list **stack);
 void		ft_px(t_list **stack_to, t_list **stack_from);

@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:11:08 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/07 19:09:28 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/07/14 19:03:57 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,31 @@ void	ft_rx(t_list **stack)
 		*stack = tmp->next;
 		tmp->next = NULL;
 	}
+}
+
+int	ft_atoi_err(const char *str, int *error)
+{
+	int	nb;
+	int	sign;
+	int	temp;
+
+	nb = 0;
+	sign = 1;
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			sign = -1;
+	if (!ft_strncmp(str, "2147483648", ft_strlen(str)) && sign == -1)
+		return (-2147483648);
+	while (ft_isdigit(*str))
+	{
+		temp = nb;
+		nb = nb * 10 + (*str++ - '0');
+		if (nb / 10 != temp)
+			*error = 1;
+	}
+	if (*str)
+		*error = 1;
+	return (nb * sign);
 }
