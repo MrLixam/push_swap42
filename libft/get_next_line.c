@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 20:12:17 by lvincent          #+#    #+#             */
-/*   Updated: 2022/12/29 17:31:39 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/22 18:41:50 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,17 +113,16 @@ static char	*new_save(char *save)
 	return (rv);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, char ***save)
 {
-	static char	*save[1024] = {NULL};
 	char		*buffer;
 
 	if (fd < 0 || fd > 1023 || BUFFER_SIZE < 1)
 		return (NULL);
-	save[fd] = read_mini_line(save[fd], fd);
-	if (!save[fd])
+	*save[fd] = read_mini_line(*save[fd], fd);
+	if (!*save[fd])
 		return (NULL);
-	buffer = get_curr_line(save[fd]);
-	save[fd] = new_save(save[fd]);
+	buffer = get_curr_line(*save[fd]);
+	*save[fd] = new_save(*save[fd]);
 	return (buffer);
 }

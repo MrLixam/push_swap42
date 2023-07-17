@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 22:09:29 by lvincent          #+#    #+#             */
-/*   Updated: 2023/05/27 17:32:17 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/06/22 18:08:25 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 8
+#  define BUFFER_SIZE 1
 # endif
 
 typedef struct s_list
@@ -86,6 +86,6 @@ size_t	ft_putunbr_fd(unsigned int n, int fd);
 size_t	ft_putptr(unsigned long long nbr);
 size_t	ft_ptr(unsigned long long ptr);
 
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, char ***save);
 
 #endif
