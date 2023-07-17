@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:22:04 by lvincent          #+#    #+#             */
-/*   Updated: 2023/07/14 19:04:12 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/07/16 19:15:14 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_atoi_err(const char *str, int *error)
 	sign = 1;
 	while ((*str >= 9 && *str <= 13) || *str == ' ')
 		str++;
-	if (*str == '-' || *str == '+')
+	while ((*str == '-' || *str == '+') || *str == '0')
 		if (*str++ == '-')
 			sign = -1;
 	if (!ft_strncmp(str, "2147483648", ft_strlen(str)) && sign == -1)

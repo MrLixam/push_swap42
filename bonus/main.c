@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 23:23:31 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/22 18:40:28 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:11:44 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static int	check_arg(char *arg)
 	if (ft_strlen(arg) < 3 || ft_strlen(arg) > 4)
 		return (0);
 	len = ft_strlen(arg);
-	if (!ft_strncmp(arg, "sa\n", len || !ft_strncmp(arg, "sb\n", len)))
+	if (!ft_strncmp(arg, "sa\n", len) || !ft_strncmp(arg, "sb\n", len))
 		return (1);
-	if (!ft_strncmp(arg, "pa\n", len || !ft_strncmp(arg, "pb\n", len)))
+	if (!ft_strncmp(arg, "pa\n", len) || !ft_strncmp(arg, "pb\n", len))
 		return (1);
-	if (!ft_strncmp(arg, "ran\n", len || !ft_strncmp(arg, "rb\n", len)))
+	if (!ft_strncmp(arg, "ran\n", len) || !ft_strncmp(arg, "rb\n", len))
 		return (1);
-	if (!ft_strncmp(arg, "rra\n", len || !ft_strncmp(arg, "rrb\n", len)))
+	if (!ft_strncmp(arg, "rra\n", len) || !ft_strncmp(arg, "rrb\n", len))
 		return (1);
-	if (!ft_strncmp(arg, "rr\n", len || !ft_strncmp(arg, "rrr\n", len)))
+	if (!ft_strncmp(arg, "rr\n", len) || !ft_strncmp(arg, "rrr\n", len))
 		return (1);
 	if (!ft_strncmp(arg, "ss\n", len))
 		return (1);
@@ -100,7 +100,8 @@ int	main(int argc, char **argv)
 	}
 	init_stack(stack_a, stack_b, foo, ft_len_arr(foo));
 	i = instructions(stack_a, stack_b);
-	if (!check_sort(stack_a, ft_lstsize(*stack_a)) && !i)
+	if ((!check_sort(stack_a, ft_lstsize(*stack_a)) && !i)
+		&& !ft_lstsize(*stack_b))
 		ft_printf("OK\n");
 	else if (!i)
 		ft_printf("KO\n");

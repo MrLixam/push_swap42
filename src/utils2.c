@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:30:20 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/07 18:43:08 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:07:45 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,17 @@ int	check_sort(t_list **stack, int max)
 	int			last;
 
 	head = *stack;
+	if (!head)
+		return (-1);
 	current = head->content;
+	if (!current)
+		return (-1);
 	last = current->value;
 	while (head != NULL && max-- != 0)
 	{
 		current = head->content;
 		if (last > current->value)
-			return (-1);
+			return (1);
 		last = current->value;
 		head = head->next;
 	}
