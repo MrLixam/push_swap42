@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 17:36:34 by lvincent          #+#    #+#              #
-#    Updated: 2023/07/19 19:38:00 by lvincent         ###   ########.fr        #
+#    Updated: 2023/07/19 19:47:50 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,5 @@ fclean :
 	@make fclean -C ./libft -s
 
 re : fclean all
-
-re_b : fclean bonus
 
 .PHONY : all clean fclean re libft bonus
