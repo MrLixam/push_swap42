@@ -6,7 +6,7 @@
 #    By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 17:36:34 by lvincent          #+#    #+#              #
-#    Updated: 2023/06/07 15:55:13 by lvincent         ###   ########.fr        #
+#    Updated: 2023/07/19 19:38:00 by lvincent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ CC = clang
 
 LIBFT = ./libft/libft.a
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 
 all : libft $(NAME)
 
