@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 20:37:08 by lvincent          #+#    #+#             */
-/*   Updated: 2023/06/05 23:03:40 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:20:05 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 static void	sort_3(t_list **stack, int s)
 {
-	while (check_sort(stack, 3) == -1)
+	while (check_sort(stack, 3))
 	{	
 		if (read_value(stack, 0) > read_value(stack, 1))
 		{
 			if (read_value(stack, 0) > read_value(stack, 2))
 			{
 				ft_rx(stack, 1);
-				continue ;
-			}	
+			}
 		}		
 		if (read_value(stack, 0) > read_value(stack, 1))
 			ft_sx(stack, s);

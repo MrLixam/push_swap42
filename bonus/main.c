@@ -6,7 +6,7 @@
 /*   By: lvincent <lvincent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 23:23:31 by lvincent          #+#    #+#             */
-/*   Updated: 2023/07/17 19:11:44 by lvincent         ###   ########.fr       */
+/*   Updated: 2023/07/19 15:54:13 by lvincent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	check_arg(char *arg)
 		return (1);
 	if (!ft_strncmp(arg, "pa\n", len) || !ft_strncmp(arg, "pb\n", len))
 		return (1);
-	if (!ft_strncmp(arg, "ran\n", len) || !ft_strncmp(arg, "rb\n", len))
+	if (!ft_strncmp(arg, "ra\n", len) || !ft_strncmp(arg, "rb\n", len))
 		return (1);
 	if (!ft_strncmp(arg, "rra\n", len) || !ft_strncmp(arg, "rrb\n", len))
 		return (1);
