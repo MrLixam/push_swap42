@@ -19,6 +19,9 @@ there also is a `make bonus` to get a checker
 to use `checker` on `push_swap`, you must pipe the result of `push_swap` into `checker` as follows :
 
 ```./push_swap YOUR_LIST | ./checker YOUR_LIST```
+
 OK means the list is sorted
+
 KO means the list isn't sorted
-Error Means your args have a problem
+
++Error Means your args have a problem
